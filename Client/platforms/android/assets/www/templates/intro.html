@@ -1,5 +1,5 @@
 
-    <ion-view view-title="من وکیلم">
+    <ion-view view-title="I am my lawyer">
         <ion-nav-buttons side="left">
             <button class="button button-positive button-outline no-animation"
                     ng-click="startApp()" ng-show="!slideIndex">
@@ -9,17 +9,17 @@
 
             <button class="button button-positive button-outline no-animation"
                     ng-click="previous()" ng-show="slideIndex > 0">
-                <p>صفحه قبل</p>
+                <p>previous page</p>
             </button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
             <button class="button button-positive button-outline no-animation"
                     ng-click="next()" ng-show="slideIndex != 2">
-                <p>صفحه بعد</p>
+                <p>next page</p>
             </button>
             <button class="button button-positive button-outline no-animation"
                     ng-click="startApp()" ng-show="slideIndex == 2">
-                <p>خروج</p>
+                <p>Exit</p>
             </button>
         </ion-nav-buttons>
         <ion-slide-box on-slide-changed="slideChanged(index)">

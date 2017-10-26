@@ -360,20 +360,24 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
            username: undefined,
            usComment: undefined
        }
+
+       $serverName = "test.vakilam.org"
+       //$serverName = "vakilam.org"
+
        //Functions
         $scope.msgPosterUser = function(){
             var data = {
                 username: $scope.msgPoster.username,
                 usComment: $scope.msgPoster.usComment
             }
-             $http.post("https://vakilam.org//CP/funcs/api.php", data).success(function(response){
+             $http.post("https://" + $serverName + "/CP/funcs/api.php", data).success(function(response){
                  console.log(response);
              })
         };
        //Init
     })
     .controller('customersCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/funcs/userdata.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/funcs/userdata.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
             });
@@ -392,42 +396,42 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
 
 
     .controller('nemooneShekayatHoghooghiCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data3/nemooneShekayatHoghooghi.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data3/nemooneShekayatHoghooghi.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
         console.log($scope.records);
     }])
     .controller('nemooneShekayatKeyfariCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data3/nemooneShekayatKeyfari.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data3/nemooneShekayatKeyfari.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
         console.log($scope.records);
     }])
     .controller('nemooneShekayatSazmanCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data3/nemooneShekayatSazman.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data3/nemooneShekayatSazman.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
         console.log($scope.records);
     }])
     .controller('nemooneShekayatDivanCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data3/nemooneShekayatDivan.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data3/nemooneShekayatDivan.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
         console.log($scope.records);
     }])
     .controller('nemooneShekayatBazresiCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data3/nemooneShekayatBazresi.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data3/nemooneShekayatBazresi.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
         console.log($scope.records);
     }])
     .controller('nemooneSayerMavaredCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data3/nemooneSayerMavared.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data3/nemooneSayerMavared.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
@@ -439,14 +443,14 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
 
 
     .controller('shekayatHoghooghiCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data2/shekayatHoghooghi.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data2/shekayatHoghooghi.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
         console.log($scope.records);
     }])
     .controller('shekayatKeyfariCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data2/shekayatKeyfari.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data2/shekayatKeyfari.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
@@ -454,7 +458,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
     }])
 
     .controller('shekayatDivanCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data2/shekayatDivan.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data2/shekayatDivan.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
@@ -462,7 +466,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
     }])
 
     .controller('shekayatBazresiCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data2/shekayatBazresi.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data2/shekayatBazresi.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
@@ -470,14 +474,14 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
     }])
 
     .controller('shekayatSazmanCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data2/shekayatSazman.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data2/shekayatSazman.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
         console.log($scope.records);
     }])
     .controller('sayerMavaredCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/data2/sayerMavared.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/data2/sayerMavared.php').success(function(data){
             console.log(data);
             $scope.records = data['records'];
         });
@@ -490,7 +494,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
    ////////////////////////////////////////////////////////////////// //Safheyeh  hagh ha
 
    .controller('aslebarabariCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/asleBarabari.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/asleBarabari.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
@@ -503,97 +507,97 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
 
 
 .controller('hagheHayatCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheHayat.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheHayat.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('azadieBayanCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/azadieBayan.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/azadieBayan.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('azadieMazhabCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/azadieMazhab.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/azadieMazhab.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }]).controller('digarMavaredCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/digarMavared.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/digarMavared.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheAzadiCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheAzadi.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheAzadi.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheAzadieTajamoCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheAzadieTajamo.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheAzadieTajamo.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheFarhangiCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheFarhangi.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheFarhangi.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheKarCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheKar.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheKar.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheMaskanCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheMaskan.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheMaskan.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheSalamatCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheSalamat.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheSalamat.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheTahsilCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheTahsil.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheTahsil.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('hagheVakilCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/hagheVakil.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/hagheVakil.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('mohiteZistCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/mohiteZist.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/mohiteZist.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
     console.log($scope.records);
 }])
 .controller('shekanjehCtrl',[ '$scope','$http',function($scope, $http) {
-    $http.get('https://vakilam.org//CP/data/shekanjeh.php').success(function(data){
+    $http.get('https://' + $serverName + '/CP/data/shekanjeh.php').success(function(data){
         console.log(data);
         $scope.records = data['records'];
     });
@@ -605,104 +609,104 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
 // Get data from Php for tagging to lows
 
     .controller('barabariCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/asleBarabari.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/asleBarabari.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('HayatCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/hagheHayat.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/hagheHayat.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('BayanCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/azadieBayan.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/azadieBayan.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('MazhabCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/azadieMazhab.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/azadieMazhab.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }]).controller('MavaredCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/digarMavared.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/digarMavared.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('azadiVaAmanCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/azadiVaAmniyat.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/azadiVaAmniyat.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('hagheAzadieTajamo2Ctrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/azadieTajamo.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/azadieTajamo.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('FarhangiCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/hoghougheFarhangi.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/hoghougheFarhangi.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('KaarCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/hagheKar.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/hagheKar.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('MaskanCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/hagheMaskan.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/hagheMaskan.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('SalamatCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/hagheSalamat.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/hagheSalamat.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('tahsiilCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/hagheTahsil.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/hagheTahsil.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('hagheVakil2Ctrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/hagheVakil.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/hagheVakil.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('mohiteCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/mohiteZistePaak.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/mohiteZistePaak.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
         console.log($scope.select);
     }])
     .controller('shekanjCtrl',[ '$scope','$http',function($scope, $http) {
-        $http.get('https://vakilam.org//CP/databind/shekanjeh.php').success(function(data){
+        $http.get('https://' + $serverName + '/CP/databind/shekanjeh.php').success(function(data){
             console.log(data);
             $scope.select = data['select'];
         });
@@ -722,7 +726,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('https://vakilam.org//CP/admin/shekayatPic/shekayatKeyfari.jpeg', '_system', options)
+            $cordovaInAppBrowser.open('https://' + $serverName + '/CP/admin/shekayatPic/shekayatKeyfari.jpeg', '_system', options)
 
                 .then(function(event) {
                     // success
@@ -743,7 +747,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('https://vakilam.org//CP/admin/shekayatPic/shekayatHoghooghi.jpeg', '_system', options)
+            $cordovaInAppBrowser.open('https://' + $serverName + '/CP/admin/shekayatPic/shekayatHoghooghi.jpeg', '_system', options)
 
                 .then(function(event) {
                     // success
@@ -764,7 +768,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('https://vakilam.org//CP/admin/shekayatPic/shekayatBeDivanEdalat.jpeg', '_system', options)
+            $cordovaInAppBrowser.open('https://' + $serverName + '/CP/admin/shekayatPic/shekayatBeDivanEdalat.jpeg', '_system', options)
 
                 .then(function(event) {
                     // success
@@ -785,7 +789,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('https://vakilam.org//CP/admin/shekayatPic/sheykayatBeSazmanBazresi.jpeg', '_system', options)
+            $cordovaInAppBrowser.open('https://' + $serverName + '/CP/admin/shekayatPic/sheykayatBeSazmanBazresi.jpeg', '_system', options)
 
                 .then(function(event) {
                     // success
@@ -806,7 +810,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('https://vakilam.org//CP/admin/shekayatPic/shekayatBeSazmanMelal.jpeg', '_system', options)
+            $cordovaInAppBrowser.open('https://' + $serverName + '/CP/admin/shekayatPic/shekayatBeSazmanMelal.jpeg', '_system', options)
 
                 .then(function(event) {
                     // success
@@ -827,7 +831,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('https://vakilam.org//CP/admin/shekayatPic/shekayatSayerMavared.jpeg', '_system', options)
+            $cordovaInAppBrowser.open('https://' + $serverName + '/CP/admin/shekayatPic/shekayatSayerMavared.jpeg', '_system', options)
 
                 .then(function(event) {
                     // success

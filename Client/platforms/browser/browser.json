@@ -6,6 +6,18 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {},
-    "dependent_plugins": {}
+    "installed_plugins": {
+        "cordova-plugin-privacyscreen": {
+            "PACKAGE_NAME": "com.part12studios.vakilam"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.part12studios.vakilam"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [],
+    "plugin_metadata": {
+        "cordova-plugin-privacyscreen": "0.3.1",
+        "cordova-plugin-whitelist": "1.3.2"
+    }
 }
