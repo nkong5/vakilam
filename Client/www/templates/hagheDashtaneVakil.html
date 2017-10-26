@@ -1,0 +1,34 @@
+<ion-view view-title="Right to litigation and fair trial" ng-controller="hagheVakil2Ctrl">
+    <ion-content class="padding backimg7" >
+        <div class="list list-inset">
+            <label class="item item-input chap">
+
+                <input type="search" ng-model="quary" placeholder="Search" class="chap fontsim">
+                <i class="icon ion-search placeholder-icon chap padding-right"></i>
+            </label>
+        </div>
+        <div ng-controller="hagheVakilCtrl">
+            <div ng-repeat="item in records | filter: quary " class="card2">
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datamind }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div ng-repeat="item in select | filter: quary " class="card">
+            <div class="padding fontsim esmealaki">
+                <p class="chap">{{ item.username }}</p>
+            </div>
+            <div class="item item-text-wrap fontsim">
+                <p class="chap">{{ item.usComment }}</p>
+            </div>
+            <div class="padding fontsim pasokh cadr">
+                <p class="chap ">Response</p>
+            </div>
+            <div class="padding fontsim pasokh2 cadr2">
+                <p class="chap">{{ item.adComment }}</p>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

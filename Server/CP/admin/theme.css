@@ -1,0 +1,43 @@
+.sizedown{
+
+    height:200px;
+    width:200px;
+}
+.sizedown:hover{
+
+transition: 1s all ease;
+
+    opacity: .5;
+}
+body{
+    background: url(../img/BG.png);
+}
+
+@font-face {
+    font-family:NazBold;
+    src:url(../fonts/NazBold.ttf);
+}
+.divo{
+
+
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    font-family: NazBold;
+    color: #FF2000;
+
+}
+.sizedownn{
+    margin-top: 1px;
+    height:80px;
+    width:80px;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+
+}
+
+.divback{
+background-color: #111111;
+}
+

@@ -1,0 +1,29 @@
+<ion-view view-title="شکایت به سازمان بازرسی کل کشور">
+    <ion-content class="padding backimg7" >
+
+        <div ng-controller="shekayatBazresiCtrl">
+            <div ng-repeat="item in records | filter: quary " class="card2">
+                <div class="padding fontsim esmealaki">
+                    <p class="chap"  dir="rtl">{{ item.datamindd }}</p>
+                </div>
+            </div>
+        </div>
+        <div ng-controller="nemooneShekayatBazresiCtrl">
+            <div ng-repeat="item in records | filter: quary " class="card3">
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datatitr }}</p>
+                </div>
+                <div class="padding fontsim esmealaki">
+                    <p class="chap"  dir="rtl">{{ item.datamind2 }}</p>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div ng-controller="picBazresi">
+            <button class=" button button-block button-energized button-outline fontsize"      ng-click = "openBrowser()">نمونه شکایت به سازمان بازرسی کل کشور</button>
+        </div>
+
+        <a class=" button button-block button-energized button-outline fontsize"   href="#/tab/fori">مشاوره حقوقی خصوصی نیاز داری؟</a>
+    </ion-content>
+</ion-view>

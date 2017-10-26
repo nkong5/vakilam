@@ -1,0 +1,32 @@
+
+<ion-view align-title="center" ng-controller="AppCtrl"  view-title="Do you have a legal question?">
+    <br>
+    <br>
+    <ion-content class="padding backimg7" ng-controller="AppCtrl">
+        <div class="  ">
+
+            <div class="chap card3 fontsim esmealaki padding" dir="rtl">
+                Choose a name for yourself. You do not need to be the real name and need only to find the answer to your question.
+            </div>
+
+        </div>
+
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" ng-model="msgPoster.username" class="chap fontsize2 areasize type" placeholder="Choose a name for yourself.">
+            </label>
+        </div>
+        <br>
+        <div class="">
+            <div class="chap card3 fontsim esmealaki padding" dir="rtl">
+                Write your question here with a full description
+            </div>
+        </div>
+        <label class="item item-input">
+            <textarea placeholder="Write your question here with a full description" ng-model="msgPoster.usComment" class="type chap fontsize2 areasize" dir="rtl"></textarea>
+        </label>
+        </div>
+        <a href="#/tab/acc" class="textdeco"><button class=" button button-block button-energized button-outline fontsize"  ng-click="msgPosterUser()">Send a question</button></a>
+
+    </ion-content>
+</ion-view>

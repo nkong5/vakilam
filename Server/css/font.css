@@ -1,0 +1,15 @@
+
+@font-face {
+    font-family:"Broya";
+    src:url(font/BRoya.ttf);
+}
+
+
+.font{
+    font-family: Broya;
+}
+.divi{
+
+    width: 70%;
+    background-color: #d5d9d3;
+}

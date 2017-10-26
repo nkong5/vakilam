@@ -1,0 +1,28 @@
+<ion-view view-title="شکایت به دیوان عدالت اداری">
+    <ion-content class="padding backimg7" >
+
+        <div ng-controller="shekayatDivanCtrl">
+            <div ng-repeat="item in records | filter: quary " class="card2">
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datamindd }}</p>
+                </div>
+            </div>
+        </div>
+        <div ng-controller="nemooneShekayatDivanCtrl">
+            <div ng-repeat="item in records | filter: quary " class="card3">
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datatitr }}</p>
+                </div>
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datamind2 }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="picDivan">
+            <button class=" button button-block button-energized button-outline fontsize"    ng-click = "openBrowser()">نمونه دادخواست دیوان عدالت اداری</button>
+        </div>
+
+        <a class=" button button-block button-energized button-outline fontsize"   href="#/tab/fori">مشاوره حقوقی خصوصی نیاز داری؟</a>
+    </ion-content>
+</ion-view>

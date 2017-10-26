@@ -1,0 +1,31 @@
+<ion-view view-title="Legal complaint">
+    <ion-content class="padding backimg7" >
+
+
+        </div>
+        <div ng-controller="shekayatHoghooghiCtrl">
+            <div ng-repeat="item in records | filter: quary " class="card2">
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datamindd }}</p>
+                </div>
+            </div>
+        </div>
+        <div ng-controller="nemooneShekayatHoghooghiCtrl">
+            <div ng-repeat="item in records | filter: quary " class="card3">
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datatitr }}</p>
+                </div>
+                <div class="padding fontsim esmealaki">
+                    <p class="chap" dir="rtl">{{ item.datamind2 }}</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div ng-controller="picHoghooghi">
+            <button class=" button button-block button-energized button-outline fontsize"       ng-click = "openBrowser()">Sample petition</button>
+        </div>
+        <a class=" button button-block button-energized button-outline fontsize"   href="#/tab/fori">Do you need legal counseling?</a>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,50 @@
+
+    <ion-view view-title="من وکیلم">
+        <ion-nav-buttons side="left">
+            <button class="button button-positive button-outline no-animation"
+                    ng-click="startApp()" ng-show="!slideIndex">
+                <p>خروج</p>
+            </button>
+
+
+            <button class="button button-positive button-outline no-animation"
+                    ng-click="previous()" ng-show="slideIndex > 0">
+                <p>صفحه قبل</p>
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-positive button-outline no-animation"
+                    ng-click="next()" ng-show="slideIndex != 2">
+                <p>صفحه بعد</p>
+            </button>
+            <button class="button button-positive button-outline no-animation"
+                    ng-click="startApp()" ng-show="slideIndex == 2">
+                <p>خروج</p>
+            </button>
+        </ion-nav-buttons>
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+            <ion-slide class="back">
+                <div class="">
+                <div id="logo">
+                    <img src="/img/intor1.jpg">
+                </div>
+                </div>
+            </ion-slide>
+            <ion-slide class="back">
+                <div class="">
+                    <div id="logo">
+                        <img src="/img/intor2.jpg">
+                    </div>
+                </div>
+
+            </ion-slide>
+            <ion-slide class="back">
+                <div class="">
+                    <div id="logo">
+                        <img src="/img/intor2.jpg">
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-view>
+

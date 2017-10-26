@@ -1,0 +1,10 @@
+Options -Indexes
+
+php_flag log_errors On
+php_value error_log /home/vakilam/43Q67T62/logs/php-error.log
+
+RewriteEngine On
+# RewriteCond %{HTTPS} off
+# /CP/funcs/api.php is whitelisted from HTTPS redirect since the app has HTTP hard-coded and POST data is lost on redirect
+RewriteCond %{REQUEST_URI} !^/CP/funcs/api.php$
+# RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]

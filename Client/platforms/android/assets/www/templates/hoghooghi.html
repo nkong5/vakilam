@@ -1,0 +1,32 @@
+
+<ion-view align-title="center" ng-controller="AppCtrl"  view-title="سؤال حقوقی داری؟">
+    <br>
+    <br>
+    <ion-content class="padding backimg7" ng-controller="AppCtrl">
+        <div class="  ">
+
+            <div class="chap card3 fontsim esmealaki padding" dir="rtl">
+                یک اسم برای خودتان انتخاب کنید. لازم نیست اسم واقعی‌تان باشد و فقط برای یافتن پاسخ‌ سئوال‌تان به آن نیاز خواهید داشت.
+            </div>
+
+        </div>
+
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" ng-model="msgPoster.username" class="chap fontsize2 areasize type" placeholder="یک اسم برای خودتان انتخاب کنید. ">
+            </label>
+        </div>
+        <br>
+        <div class="">
+            <div class="chap card3 fontsim esmealaki padding" dir="rtl">
+                سؤال‌تان را با شرح کامل اینجا بنویسید
+            </div>
+        </div>
+        <label class="item item-input">
+            <textarea placeholder="سؤال‌تان را با شرح کامل اینجا بنویسید"ng-model="msgPoster.usComment" class="type chap fontsize2 areasize" dir="rtl"></textarea>
+        </label>
+        </div>
+        <a href="#/tab/acc" class="textdeco"><button class=" button button-block button-energized button-outline fontsize"  ng-click="msgPosterUser()">ارسال سؤال</button></a>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "Login required"
+AuthBasicProvider file
+AuthUserFile /domains/vakilam.org/DEFAULT/CP/admin/.htpasswd
+require user vakilam cure53_testing
+

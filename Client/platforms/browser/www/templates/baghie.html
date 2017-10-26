@@ -1,0 +1,27 @@
+
+<ion-view view-title="What are others asking?">
+    <ion-content ng-controller="customersCtrl" class="padding backimg7" >
+
+        <div class="divo"><p></p></div>
+        <div class="list list-inset">
+            <label class="item item-input chap">
+                <input type="search" ng-model="quary" placeholder="Search" class="chap fontsim">
+                <i class="icon ion-search placeholder-icon chap padding-right"></i>
+            </label>
+        </div>
+        <div ng-repeat="item in records | filter: quary " class="card">
+            <div class="padding fontsim esmealaki">
+                <p class="chap">{{ item.username }}</p>
+              </div>
+                <div class="item item-text-wrap fontsim">
+               <p class="chap">{{ item.usComment }}</p>
+                 </div>
+                <div class="padding fontsim pasokh cadr">
+                   <p class="chap ">Response</p>
+                </div>
+            <div class="padding fontsim pasokh2 cadr2">
+                <p class="chap">{{ item.adComment }}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
