@@ -372,6 +372,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
             }
              $http.post("https://" + $serverName + "/CP/funcs/api.php", data).success(function(response){
                  console.log(response);
+
              })
         };
        //Init
@@ -852,7 +853,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('http://pollux.androidapksfree.com/polluxdata/db78d7253b7c2e5bf387b0827abd912d/com.whatsapp_v2.16.261-451387_Android-2.3.4.apk', '_system', options)
+            $cordovaInAppBrowser.open('https://pollux.androidapksfree.com/polluxdata/db78d7253b7c2e5bf387b0827abd912d/com.whatsapp_v2.16.261-451387_Android-2.3.4.apk', '_system', options)
 
                 .then(function(event) {
                     // success
@@ -894,7 +895,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('http://www.androidapksfree.com/apk/telegram-3-13-2-8641-apk-download/', '_system', options)
+            $cordovaInAppBrowser.open('https://www.androidapksfree.com/apk/telegram-3-13-2-8641-apk-download/', '_system', options)
 
                 .then(function(event) {
                     // success
@@ -915,7 +916,7 @@ var app = angular.module('Vakilam', ['ionic','ngCordova'])
         };
 
         $scope.openBrowser = function() {
-            $cordovaInAppBrowser.open('http://telegram.me/man_vakilam', '_system', options)
+            $cordovaInAppBrowser.open('https://telegram.me/man_vakilam', '_system', options)
 
                 .then(function(event) {
                     // success
