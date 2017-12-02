@@ -40,11 +40,10 @@ include "../../funcs/funcs.php";
 <?php
 if(isset($_POST["btn"]))
 {
-    $sql="UPDATE `userdata` SET `usComment` = '" . $_POST['usComment'] . "' WHERE `userdata`.`id` = " . $_GET['id'] . " ";
-    # echo $sql;
+    $sql="UPDATE `userdata` SET `usComment` = :usComment WHERE `id` = :id";
     $result=$connect->prepare($sql);
-    # $result->bindValue(1,$_POST["usComment"]);
-    # $result->bindValue(2,$_GET["id"]);
+    $result->bindValue(':usComment', $_POST["usComment"], PDO::PARAM_STR);
+    $result->bindValue('id', $_GET["id"], PDO::PARAM_INT);
     $query=$result->execute();
 
     if($query)

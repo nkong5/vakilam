@@ -20,9 +20,9 @@ if(isset($_POST["btn"]))
     {
         $sql="INSERT INTO `admin` (`id`, `manid`, `username`, `email`, `password`) VALUES (NULL, '0', ?, ?, ?);";
         $result=$connect->prepare($sql);
-        $result->bindValue(1,$username);
-        $result->bindValue(2,$email);
-        $result->bindValue(3,$password);
+        $result->bindValue(1, $username, PDO::PARAM_STR);
+        $result->bindValue(2, $email, PDO::PARAM_STR);
+        $result->bindValue(3,$password, PDO::PARAM_STR);
         $query=$result->execute();
         if($query)
         {

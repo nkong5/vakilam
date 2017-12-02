@@ -69,8 +69,8 @@ if(isset($_POST["btn"])) {
                         if ($move) {
                             $sql = "UPDATE `shekayatpic` SET `piclink` = ? WHERE `shekayatpic`.`id` = ?;";
                             $result = $connect->prepare($sql);
-                            $result->bindValue(1, $piclink);
-                            $result->bindValue(2, $_GET["id"]);
+                            $result->bindValue(1, $piclink, PDO::PARAM_STR);
+                            $result->bindValue(2, $_GET["id"], PDO::PARAM_INT);
                             $query = $result->execute();
                             if ($query) {
                                 if ($_GET["id"] == 1) {

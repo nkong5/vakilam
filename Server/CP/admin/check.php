@@ -13,8 +13,8 @@ if(isset($_POST["btn"]))
         $x=NULL;
         $sql=  "select count(*) FROM admin   where   username=? and password=? ";
         $result=$connect->prepare($sql);
-        $result->bindValue(1,$_POST["username"]);
-        $result->bindValue(2,$_POST["password"]);
+        $result->bindValue(1, $_POST["username"], PDO::PARAM_STR);
+        $result->bindValue(2, $_POST["password"], PDO::PARAM_STR);
         $result->execute();
         $query=$result->fetchColumn();
         if($query==1)

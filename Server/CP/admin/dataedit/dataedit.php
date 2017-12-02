@@ -44,8 +44,8 @@ if(isset($_POST["btn"]))
 {
     $sql="UPDATE `admindata` SET `datamind` = ? WHERE `admindata`.`id` = ?;";
     $result=$connect->prepare($sql);
-    $result->bindValue(1,$_POST["datamind"]);
-    $result->bindValue(2,$_GET["id"]);
+    $result->bindValue(1, $_POST["datamind"], PDO::PARAM_STR);
+    $result->bindValue(2, $_GET["id"], PDO::PARAM_INT);
     $query=$result->execute();
     if($query)
     {

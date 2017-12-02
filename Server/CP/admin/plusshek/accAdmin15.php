@@ -14,8 +14,8 @@ if(isset($_POST["btn"]))
     {
         $sql="INSERT INTO `shekayatname` (`id`, `dataid2`, `datamind2`, `datatitr`, `dataname2`) VALUES (NULL, '15', ?, ?, 'سایر موارد');";
         $result=$connect->prepare($sql);
-           $result->bindValue(1,$datamind2);
-           $result->bindValue(2,$datatitr);
+           $result->bindValue(1, $datamind2, PDO::PARAM_STR);
+           $result->bindValue(2, $datatitr, PDO::PARAM_STR);
         $query=$result->execute();
         if($query)
         {

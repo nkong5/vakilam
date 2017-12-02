@@ -15,9 +15,9 @@ if(isset($_POST["btn"]))
     {
         $sql="INSERT INTO `userdata` (`id`, `status`, `catstatus`, `username`, `usComment`, `adComment`, `create_time`) VALUES (NULL, '0', '0', ?, ?, ?, CURRENT_TIMESTAMP);";
         $result=$connect->prepare($sql);
-           $result->bindValue(1,$username);
-           $result->bindValue(2,$usComment);
-           $result->bindValue(3,$adComment);
+           $result->bindValue(1, $username, PDO::PARAM_STR);
+           $result->bindValue(2, $usComment, PDO::PARAM_STR);
+           $result->bindValue(3, $adComment, PDO::PARAM_STR);
         $query=$result->execute();
         if($query)
         {

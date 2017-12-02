@@ -5,7 +5,6 @@ include "../../funcs/funcs.php";
 <html>
 <head>
     <meta charset="UTF-8">
-    <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../style.css">
@@ -74,9 +73,9 @@ if(isset($_POST["btn"]))
 {
     $sql="UPDATE `shekayatname` SET `datamind2` = ?, `datatitr` = ? WHERE `shekayatname`.`id` = ?;";
     $result=$connect->prepare($sql);
-    $result->bindValue(1,$_POST["datamind2"]);
-    $result->bindValue(2,$_POST["datatitr"]);
-    $result->bindValue(3,$_GET["id"]);
+    $result->bindValue(1, $_POST["datamind2"], PDO::PARAM_STR);
+    $result->bindValue(2, $_POST["datatitr"], PDO::PARAM_STR);
+    $result->bindValue(3, $_GET["id"], PDO::PARAM_INT);
     $query=$result->execute();
     if($query)
     {

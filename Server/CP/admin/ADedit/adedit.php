@@ -39,11 +39,11 @@ include "../../funcs/funcs.php";
 <?php
 if(isset($_POST["btn"]))
 {
-    $sql="UPDATE `userdata` SET `adComment` = '" . $_POST['adComment'] . "' WHERE `userdata`.`id` = " . $_GET['id'] . " ";
+    $sql="UPDATE `userdata` SET `adComment` = :adComment WHERE `id` = :id ";
 
     $result=$connect->prepare($sql);
-    #$result->bindValue(1,$_POST["adComment"]);
-    #$result->bindValue(2,$_GET["id"]);
+    $result->bindValue(':adComment', $_POST["adComment"], PDO::PARAM_STR);
+    $result->bindValue(':id', $_GET["id"], PDO::PARAM_INT);
     $query=$result->execute();
     if($query)
     {

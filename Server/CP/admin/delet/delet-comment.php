@@ -7,9 +7,9 @@ error_reporting(E_ALL);
 include "../../funcs/connect.php";
 if(isset($_GET["id"]))
 {
-    $sql="DELETE FROM `userdata` WHERE `userdata`.`id` = " . $_GET['id'] . " ";
+    $sql="DELETE FROM `userdata` WHERE `userdata`.`id` = :id";
     $result=$connect->prepare($sql);
-    # $result->bindValue(1,$_GET["id"]);
+    $result->bindValue('id', $_GET["id"], PDO::PARAM_INT);
     $query=$result->execute();
     if($query){
         header("location:../cat/userask.php?deleted=8080");
