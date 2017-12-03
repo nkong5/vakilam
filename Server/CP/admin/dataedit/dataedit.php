@@ -60,11 +60,7 @@ if(isset($_POST["btn"]))
 <div class="posi chap">
     <form  id="form"  name="form1" method="post" >
         <textarea name="datamind" id="datamind" class="textarea1 chap"  dir="rtl">
-            <?=
-
-            $_GET["datamind"];
-
-            ?>
+            <?php echo htmlentities($_GET["datamind"], ENT_QUOTES); ?>
         </textarea>
         <br>
 
