@@ -43,7 +43,8 @@ error_reporting(E_ALL);
 <br>
 <br>
 <?php
-if(isset($_POST["btn"])) {
+
+if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'picture-uploader') ) {
     if(isset($_FILES["pic"]["name"])=="")
     {
         header("location:../shekayatpic.php");
@@ -172,7 +173,8 @@ if(isset($_POST["btn"])) {
 else
 { ?>
 <div class="posi chap">
-        <form   method="post" enctype="multipart/form-data" name="form" id="form">
+        <form   method="post" enctype="multipart/form-data" name="picture-uploader" id="form">
+            <input type="hidden" name="csrf_token" value="<?php echo generateToken('picture-uploader'); ?>"/>
             <div id="pic">
             <label for="fileField" >
             <input type="file"  name="pic" id="pic"  />
