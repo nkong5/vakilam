@@ -55,5 +55,4 @@ function tokenIsValid($token, $formName)
     return $token === generateToken($formName);
 }
 
-
 ?>
