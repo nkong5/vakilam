@@ -46,7 +46,7 @@ error_reporting(E_ALL);
 
 if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'picture-uploader') ) {
 
-    if(isset($_FILES["pic"]["name"])=="")
+    if(isset($_FILES["pic"]["name"]) && $_FILES["pic"]["name"] == "")
     {
         header("location:../shekayatpic.php");
     }
