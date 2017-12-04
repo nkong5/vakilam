@@ -58,19 +58,19 @@ if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'picture-uploader'
 
             if (in_array($file_parts['extension'], $extensions))
             {
-                $piclink = rawurlencode($_FILES["pic"]["name"]);
+                $fileName = sanitizeToAlphanumericDot($_FILES["pic"]["name"]);
                 $tmp = $_FILES["pic"]["tmp_name"];
                 $type = $_FILES["pic"]["type"];
 
                 if (is_uploaded_file($tmp)) {
                     $extension = array("image/jpeg");
                     if (in_array($type, $extension)) {
-                        $location = "../shekayatPic/" . $piclink;
+                        $location = "../shekayatPic/" . $fileName;
                         $move = move_uploaded_file($tmp, $location);
                         if ($move) {
                             $sql = "UPDATE `shekayatpic` SET `piclink` = ? WHERE `shekayatpic`.`id` = ?;";
                             $result = $connect->prepare($sql);
-                            $result->bindValue(1, $piclink, PDO::PARAM_STR);
+                            $result->bindValue(1, $fileName, PDO::PARAM_STR);
                             $result->bindValue(2, $_GET["id"], PDO::PARAM_INT);
                             $query = $result->execute();
                             if ($query) {

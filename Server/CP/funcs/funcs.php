@@ -55,4 +55,16 @@ function tokenIsValid($token, $formName)
     return $token === generateToken($formName);
 }
 
+/**
+ * Return only alphanumeric characters and dots of a given string
+ *
+ * @param string $string A given string
+ * @return mixed
+ */
+function sanitizeToAlphanumericDot ($string)
+{
+    $result = preg_replace("/[^a-zA-Z0-9\.]+/", "", $string);
+    return $result;
+}
+
 ?>
