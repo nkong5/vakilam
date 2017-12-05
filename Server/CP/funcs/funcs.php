@@ -57,7 +57,7 @@ function tokenIsValid($token, $formName)
 }
 
 /**
- * Return only alphanumeric characters and dots of a given string
+ * Returns only alphanumeric characters and dots of a given string
  *
  * @param string $string A given string
  *

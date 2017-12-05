@@ -69,14 +69,18 @@ include "../../funcs/funcs.php";
 <br>
 <br>
 <?php
-if(isset($_POST["btn"]))
+if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'shekayatname-description'))
 {
     $sql="UPDATE `shekayatname` SET `datamind2` = ?, `datatitr` = ? WHERE `shekayatname`.`id` = ?;";
+
     $result=$connect->prepare($sql);
+
     $result->bindValue(1, $_POST["datamind2"], PDO::PARAM_STR);
     $result->bindValue(2, $_POST["datatitr"], PDO::PARAM_STR);
     $result->bindValue(3, $_GET["id"], PDO::PARAM_INT);
+
     $query=$result->execute();
+
     if($query)
     {
         if($_GET["id"]==1)
@@ -118,26 +122,22 @@ if(isset($_POST["btn"]))
 }
 ?>
 <div class="posi chap">
-    <form  id="form"  name="form1" method="post" >
+    <form  id="form"  name="shekayatname-description" method="post" >
+        <input type="hidden" name="csrf_token" value="<?php echo generateToken('shekayatname-description'); ?>"/>
         <h3 dir="rtl">تیتر</h3>
         <textarea name="datatitr" id="datatitr" class="textarea1 chap"  dir="rtl">
-            <?=
-            xss($_GET["datatitr"]);
-            ?>
+            <?php if (isset($_GET["datatitr"])) echo xss($_GET["datatitr"]); ?>
         </textarea>
         <br>
         <br>
         <br>
         <h3 dir="rtl">توضیحات</h3>
         <textarea name="datamind2" id="datamind2" class="textarea1 chap"  dir="rtl">
-            <?=
-            xss($_GET["datamind2"]);
-            ?>
+            <?php if (isset($_GET["datamind2"])) echo xss($_GET["datamind2"]); ?>
         </textarea>
         <br>
 
         <input type="submit"  name="btn" id="btn" class="button1" value="ثبت"   >
-
     </form>
     <?php
     if($_GET["id"]==1)

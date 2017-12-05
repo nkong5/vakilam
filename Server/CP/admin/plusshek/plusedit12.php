@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+include "../../funcs/funcs.php";
 ?>
 <html>
 <head>
@@ -50,7 +52,8 @@ if(isset($_GET["oopsno"]))
 ?>
 <div class="posi chap">
         <br>
-        <form action="accAdmin12.php" method="post" name="form1" id="form1" class=" chap"  dir="rtl">
+        <form action="accAdmin12.php" method="post" name="sample-legal-complaint-12" id="sample-legal-complaint-12form1" class=" chap"  dir="rtl">
+            <input type="hidden" name="csrf_token" value="<?php echo generateToken('sample-legal-complaint-12'); ?>"/>
             <div id="datatitr" dir="rtl" >
             <label for="datatitr" class="title chap"  dir="rtl">تیتر</label><br><input class="textarea2 chap" id="datatitr" name="datatitr" dir="rtl" type="text">
             </div>

@@ -1,7 +1,7 @@
 <?php
 include "../../funcs/connect.php";
 include "../../funcs/funcs.php";
-if(isset($_POST["btn"]))
+if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'sample-legal-complaint-11'))
 {
     $datamind2=xss($_POST["datamind2"]);
     $datatitr=xss($_POST["datatitr"]);

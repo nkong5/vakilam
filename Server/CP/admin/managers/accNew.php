@@ -2,7 +2,7 @@
 include "../../funcs/connect.php";
 include "../../funcs/funcs.php";
 
-if(isset($_POST["btn"]))
+if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'admin-user-data'))
 {
     $username=xss($_POST["username"]);
     $email=xss($_POST["email"]);

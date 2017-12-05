@@ -37,30 +37,27 @@ include "../../funcs/funcs.php";
 <br>
 <br>
 <?php
-if(isset($_POST["btn"]))
-{
-    $sql="UPDATE `userdata` SET `adComment` = :adComment WHERE `id` = :id ";
+if (isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'question-response')) {
+    $sql = "UPDATE `userdata` SET `adComment` = :adComment WHERE `id` = :id ";
 
-    $result=$connect->prepare($sql);
+    $result = $connect->prepare($sql);
     $result->bindValue(':adComment', $_POST["adComment"], PDO::PARAM_STR);
     $result->bindValue(':id', $_GET["id"], PDO::PARAM_INT);
+
     $query=$result->execute();
-    if($query)
-    {
+    if ($query) {
         echo "<div class='okok'>با موقیت ثبت شد</div> ";
-    }
-    else
-    {
+    } else {
         echo '<div class="ooops">مشکل در ثبت اطلاعات</div>';
     }
 }
 ?>
 <div class="posi chap">
-    <form  id="form"  name="form1" method="post" action="">
+    <form  id="form"  name="question-response" method="post" action="">
+        <input type="hidden" name="csrf_token" value="<?php echo generateToken('question-response'); ?>"/>
         <textarea name="adComment" id="adComment" class="textarea1 chap">
-            <?=
-            xss($_GET["adComment"]);
-            ?>  </textarea>
+            <?php echo xss($_GET["adComment"]); ?>
+        </textarea>
         <br>
         <input type="submit" name="btn" id="btn" class="button1" value="ثبت پاسخ"   >
     </form>

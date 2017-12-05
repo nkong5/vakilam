@@ -2,7 +2,10 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+include "../../funcs/funcs.php";
 ?>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -56,7 +59,8 @@ if(isset($_GET["oopsno"]))
 
 
         <br>
-        <form action="accAdmin.php" method="post" name="form1" id="form1" class=" chap"  dir="rtl">
+        <form action="accAdmin.php" method="post" name="submit-faq" id="submit-faq" class=" chap"  dir="rtl">
+            <input type="hidden" name="csrf_token" value="<?php echo generateToken('submit-faq'); ?>"/>
             <div id="username" dir="rtl" >
             <label for="username" class="title chap"  dir="rtl">نام کاربر</label><br><input class="textarea2 chap" id="username" name="username" dir="rtl" type="text">
             </div>

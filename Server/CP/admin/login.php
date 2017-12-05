@@ -1,3 +1,7 @@
+<?php
+include "../funcs/funcs.php";
+?>
+
 <!doctype html>
 <html>
 <meta charset="UTF-8">
@@ -13,14 +17,15 @@
 </div>
 <div class="login">
     <h1 style="font-family:NazBold">پنل مدیریت</h1>
-    <form method="post" action="check.php" name="form1">
-    <input type="text" placeholder="    نام کاربری" id="username" name="username">
-    <input type="password" placeholder="    رمز عبور"  id="password" name="password">
-    <input type="submit" name="btn" value="ورود">
+    <form method="post" action="check.php" name="login">
+        <input type="hidden" name="csrf_token" value="<?php echo generateToken('login'); ?>"/>
+        <input type="text" placeholder="    نام کاربری" id="username" name="username">
+        <input type="password" placeholder="    رمز عبور"  id="password" name="password">
+        <input type="submit" name="btn" value="ورود">
     </form>
     <br>
     <br>
 </div>
 <div class="shadow"></div>
 </body>
-    </html>
+</html>

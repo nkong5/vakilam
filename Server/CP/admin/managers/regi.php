@@ -1,5 +1,6 @@
 <?php
 include "../../funcs/connect.php";
+include "../../funcs/funcs.php";
 ?>
 <html>
 <head>
@@ -24,8 +25,8 @@ include "../../funcs/connect.php";
     echo '".
            <div class="body_style">
                <div class="menu">
-                      <a href="#" onClick=exit()>  <img src="../../img/exit.png" class="exit">  </a>
-                      <a href="../panel.php">      <img src="../../img/admin.png" class="logoright"></a>
+                      <a href="#" onClick=exit()>  <img src="../../../img/exit.png" class="exit">  </a>
+                      <a href="../panel.php">      <img src="../../../img/admin.png" class="logoright"></a>
                       <p class="float_center textstyle">پنل مدیریت ،بنده وکیلم</p>
                </div>
            </div>
@@ -51,11 +52,9 @@ if(isset($_GET["error"]))
 
 
 <div class="posi chap">
-
-
-
     <br>
-    <form action="accNew.php" method="post" name="form1" id="form1" class=" chap"  dir="rtl">
+    <form action="accNew.php" method="post" name="admin-user-data" id="form1" class=" chap"  dir="rtl">
+        <input type="hidden" name="csrf_token" value="<?php echo generateToken('admin-user-data'); ?>"/>
         <div id="username" dir="rtl" >
             <label for="username" class="title chap"  dir="rtl">نام کاربری </label><br><input class="textarea2 chap" id="username" name="username" dir="rtl" type="text">
         </div>

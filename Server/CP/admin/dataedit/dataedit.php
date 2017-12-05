@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+include "../../funcs/funcs.php";
 ?>
 <html>
 <head>
@@ -40,7 +42,7 @@ error_reporting(E_ALL);
 <br>
 <br>
 <?php
-if(isset($_POST["btn"]))
+if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'insert-description'))
 {
     $sql="UPDATE `admindata` SET `datamind` = ? WHERE `admindata`.`id` = ?;";
     $result=$connect->prepare($sql);
@@ -58,7 +60,8 @@ if(isset($_POST["btn"]))
 }
 ?>
 <div class="posi chap">
-    <form  id="form"  name="form1" method="post" >
+    <form  id="form"  name="insert-description" method="post" >
+        <input type="hidden" name="csrf_token" value="<?php echo generateToken('insert-description'); ?>"/>
         <textarea name="datamind" id="datamind" class="textarea1 chap"  dir="rtl">
             <?php echo htmlentities($_GET["datamind"], ENT_QUOTES); ?>
         </textarea>

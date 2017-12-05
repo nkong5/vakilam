@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+include "../../funcs/funcs.php";
 ?>
 <html>
 <head>
@@ -40,25 +42,23 @@ error_reporting(E_ALL);
 <br>
 <br>
 <?php
-if(isset($_POST["btn"]))
-{
-    $sql="UPDATE `technofa_admin`.`shekayat` SET `datamindd` = ? WHERE `shekayat`.`id` = ? ;";
+if (isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'insert-legal-description')) {
+    $sql="UPDATE `shekayat` SET `datamindd` = ? WHERE `shekayat`.`id` = ? ;";
     $result=$connect->prepare($sql);
     $result->bindValue(1, $_POST["datamindd"], PDO::PARAM_STR);
     $result->bindValue(2, $_GET["id"], PDO::PARAM_INT);
     $query=$result->execute();
-    if($query)
-    {
+
+    if ($query) {
         header("location:../shekayat.php");
-    }
-    else
-    {
+    } else {
         echo '<div class="ooops">مشکل در ثبت اطلاعات</div>';
     }
 }
 ?>
 <div class="posi chap">
-    <form  id="form"  name="form1" method="post" >
+    <form  id="form"  name="insert-legal-description" method="post" >
+        <input type="hidden" name="csrf_token" value="<?php echo generateToken('insert-legal-description'); ?>"/>
         <textarea name="datamindd" id="datamindd" class="textarea1 chap"  dir="rtl">
             <?php echo htmlentities($_GET["datamindd"], ENT_QUOTES); ?>
         </textarea>
