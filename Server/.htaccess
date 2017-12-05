@@ -8,3 +8,9 @@ RewriteEngine On
 # /CP/funcs/api.php is whitelisted from HTTPS redirect since the app has HTTP hard-coded and POST data is lost on redirect
 RewriteCond %{REQUEST_URI} !^/CP/funcs/api.php$
 # RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
+
+# HTTP Security Headers
+Header set X-Content-Type-Options "nosniff"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Frame-Options "DENY"

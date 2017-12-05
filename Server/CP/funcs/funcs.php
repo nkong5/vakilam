@@ -1,10 +1,10 @@
 <?php
-
 /**
- * Returns String in upper case form
  * TODO Deprecate function, since returning an core PHP function doesn't serve a greater purpose
+ * Returns String in upper case form
  *
- * @param $string
+ * @param string $string String
+ *
  * @return string
  */
 function toupper($string)
@@ -13,10 +13,11 @@ function toupper($string)
 }
 
 /**
- * Returns characters converted to HTML entities
  * TODO Deprecate function, since returning an core PHP function doesn't serve a greater purpose
+ * Returns characters converted to HTML entities
  *
- * @param $string
+ * @param string $string String
+ *
  * @return string
  */
 function xss($string)
@@ -24,11 +25,11 @@ function xss($string)
 	return htmlentities($string, ENT_QUOTES);
 }
 
-
 /**
  * Generates CSRF token
  *
  * @param string $formName Name of form
+ *
  * @return string
  */
 function generateToken($formName)
@@ -53,6 +54,19 @@ function generateToken($formName)
 function tokenIsValid($token, $formName)
 {
     return $token === generateToken($formName);
+}
+
+/**
+ * Return only alphanumeric characters and dots of a given string
+ *
+ * @param string $string A given string
+ *
+ * @return mixed
+ */
+function sanitizeToAlphanumericDot ($string)
+{
+    $result = preg_replace("/[^a-zA-Z0-9\.]+/", "", $string);
+    return $result;
 }
 
 ?>
