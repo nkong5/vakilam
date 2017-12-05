@@ -39,7 +39,7 @@ function generateToken($formName)
     }
     $sessionId = session_id();
 
-    return sha1($formName.$sessionId.$key);
+    return hash('sha256', $formName.$sessionId.$key);
 }
 
 /**
