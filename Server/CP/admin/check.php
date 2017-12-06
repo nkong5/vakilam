@@ -7,14 +7,16 @@ if (isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'login')) {
         header("location:login.php?empty=1919");
         exit;
     } else {
-        $x=NULL;
-        $sql=  "select count(*) FROM admin   where   username=? and password=? ";
-        $result=$connect->prepare($sql);
-        $result->bindValue(1, $_POST["username"], PDO::PARAM_STR);
-        $result->bindValue(2, $_POST["password"], PDO::PARAM_STR);
-        $result->execute();
-        $query=$result->fetchColumn();
-        if ($query==1) {
+        $sql = "SELECT password FROM admin WHERE username = ?";
+
+        $prepare = $connect->prepare($sql);
+
+        $prepare->bindValue(1, $_POST["username"], PDO::PARAM_STR);
+        $prepare->execute();
+
+        $result = $prepare->fetchColumn();
+
+        if (password_verify($_POST["password"], $result)) {
             header("location:panel.php?loginok=2020");
             exit;
         } else {
