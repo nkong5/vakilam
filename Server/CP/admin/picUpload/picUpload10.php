@@ -55,10 +55,12 @@ if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'picture-uploader'
         $tmp  = $_FILES["pic"]["tmp_name"];
         $info = getimagesize($tmp);
 
+        // Allow only images
         if ($info === FALSE) {
             throw new Exception("Unable to determine image type of uploaded file");
         }
 
+        // Allow only JPEGs
         if ($info[2] !== IMAGETYPE_JPEG) {
             throw new Exception("Invalid file extension. Only JPG and JPEG allowed!");
         }
@@ -67,6 +69,7 @@ if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'picture-uploader'
             throw new Exception("Unable to upload file!");
         }
 
+        // Allow only alphanumeric characters and dots in file name
         $fileName = sanitizeToAlphanumericDot($_FILES["pic"]["name"]);
         $location = "../shekayatPic/" . $fileName;
 
