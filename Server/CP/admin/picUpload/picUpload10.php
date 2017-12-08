@@ -60,6 +60,11 @@ if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'picture-uploader'
             throw new Exception("Unable to determine image type of uploaded file");
         }
 
+        $allowedExtensions = array('jpeg', 'jpg');
+        if(!in_array($info['extension'], $allowedExtensions) ) {
+            throw new Exception("The file extension '" . $info['extension'] .  "' is not allowed");
+        }
+
         // Allow only JPEGs
         if ($info[2] !== IMAGETYPE_JPEG) {
             throw new Exception("Invalid file extension. Only JPG and JPEG allowed!");
