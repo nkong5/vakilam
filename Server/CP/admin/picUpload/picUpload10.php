@@ -61,7 +61,8 @@ if(isset($_POST["btn"]) && tokenIsValid($_POST['csrf_token'], 'picture-uploader'
         }
 
         $allowedExtensions = array('jpeg', 'jpg');
-        if(!in_array($info['extension'], $allowedExtensions) ) {
+        $fileExtension = strtolower(pathinfo($_FILES["pic"]["name"], PATHINFO_EXTENSION));
+        if(!in_array($fileExtension, $allowedExtensions)) {
             throw new Exception("The file extension '" . $info['extension'] .  "' is not allowed");
         }
 
