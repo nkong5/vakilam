@@ -4,6 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include "../../funcs/funcs.php";
+include "../../funcs/connect.php";
 ?>
 
 <html>
@@ -25,8 +26,7 @@ include "../../funcs/funcs.php";
 
     <meta charset="UTF-8">
     <?php
-    include "../../funcs/connect.php";
-    echo '".
+    echo '
            <div class="body_style">
                <div class="menu">
                       <a href="#" onClick=exit()>  <img src="../../img/exit.png" class="exit">  </a>
@@ -34,7 +34,7 @@ include "../../funcs/funcs.php";
                       <p class="float_center textstyle">پنل مدیریت ،بنده وکیلم</p>
                </div>
            </div>
-  ."';
+  ';
     ?>
 </head>
 <body id="style1">
